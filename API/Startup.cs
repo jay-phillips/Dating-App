@@ -62,17 +62,19 @@ namespace API
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             //}
 
+            
+            
+            //Allow headers, methods(verbs) from http://localhost:4200 (Angular)
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
             
-            //Allow headers, methods(verbs) from http://localhost:4200 (Angular)
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
-
             app.UseAuthentication();
             
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

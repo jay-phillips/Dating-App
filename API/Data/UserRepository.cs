@@ -44,7 +44,7 @@ namespace API.Data
             return await this._context.Users.FindAsync(id);
         }
 
-        public async Task<AppUser> GetUserByUsernameAync(string username)
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
 
             return await this._context.Users
